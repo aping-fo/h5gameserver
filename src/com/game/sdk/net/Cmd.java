@@ -12,4 +12,6 @@ public class Cmd {
     public static final int END_MATCH = 2002;
     //请求匹配结果
     public static final int GET_MATCH_RESULT = 2003;
+    //请求题库
+    public static final int GET_QUEST_BANK = 2004;
 }

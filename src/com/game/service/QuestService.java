@@ -179,7 +179,7 @@ public class QuestService extends AbstractService {
      * @param openId
      * @return
      */
-    public Result queryMatchResult(String openId) {
+    public Result queryMatchResult(String openId) throws Exception{
         MatchResultResp resp = new MatchResultResp();
         String code = ErrorCode.OK;
 

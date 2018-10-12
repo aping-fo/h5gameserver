@@ -41,8 +41,6 @@ public class MessageHandlerServlet extends SdkServlet {
 
             if (logger.isInfoEnabled()) {
                 logger.info("receive req, [data]= " + data + ",[s] = " + sign + ",[openId] = " + openId + ",[cmd] = " + cmd);
-                //data = new String(Base64.getDecoder().decode(data), Charset.forName("UTF-8"));
-                //logger.info("receive req, [decode data]= " + data);
             }
 
             if (sign == null ||

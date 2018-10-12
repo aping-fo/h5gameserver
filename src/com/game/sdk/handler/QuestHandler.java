@@ -5,6 +5,7 @@ import com.game.sdk.annotation.Handler;
 import com.game.sdk.net.Cmd;
 import com.game.sdk.net.Result;
 import com.game.sdk.proto.StartMatchReq;
+import com.game.service.QuestBankService;
 import com.game.service.QuestService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,6 +17,8 @@ public class QuestHandler {
 
     @Autowired
     private QuestService questService;
+    @Autowired
+    private QuestBankService questBankService;
 
     @Command(cmd = Cmd.START_MATCH, description = "请求匹配")
     public Result starMatch(String openId, StartMatchReq req) throws Exception {
@@ -32,6 +35,12 @@ public class QuestHandler {
     @Command(cmd = Cmd.GET_MATCH_RESULT, description = "获取匹配结果")
     public Result queryMatchResult(String openId) throws Exception {
         Result result = questService.queryMatchResult(openId);
+        return result;
+    }
+
+    @Command(cmd = Cmd.GET_QUEST_BANK, description = "请求题库")
+    public Result getQuests(String openId) throws Exception {
+        Result result = questBankService.getQuests(openId);
         return result;
     }
 }
