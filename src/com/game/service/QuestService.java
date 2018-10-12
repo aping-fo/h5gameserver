@@ -4,8 +4,11 @@ import com.game.domain.quest.Matcher;
 import com.game.domain.quest.Room;
 import com.game.sdk.net.Result;
 import com.game.sdk.proto.MatchResultResp;
+import com.game.sdk.proto.HistoryQuestionResp;
 import com.game.sdk.proto.StartMatchReq;
 import com.game.sdk.proto.vo.MatcherVO;
+import com.game.sdk.proto.vo.HistoryQuestionVO;
+
 import com.game.sdk.utils.ErrorCode;
 import com.game.util.JsonUtils;
 import com.game.util.TimerService;
@@ -212,4 +215,16 @@ public class QuestService extends AbstractService {
         return Result.valueOf(code, resp);
     }
 
+    /**
+     * 查询历史题库
+     * @param openId
+     * @return
+     */
+    public Result getHistoryQuestion(String openId) throws Exception{
+        String code = ErrorCode.OK;
+        HistoryQuestionResp resp = new HistoryQuestionResp();
+
+
+        return Result.valueOf(code, resp);
+    }
 }

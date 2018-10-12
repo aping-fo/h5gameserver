@@ -27,4 +27,7 @@ public class PlayerService {
                 }
             });
 
+    public Player getPlayer(String openId) {
+        return players.getUnchecked(openId);
+    }
 }

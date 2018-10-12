@@ -14,4 +14,7 @@ public class Cmd {
     public static final int GET_MATCH_RESULT = 2003;
     //请求题库
     public static final int GET_QUEST_BANK = 2004;
+
+    //请求历史题库
+    public static final int GET_HISTORY_QUESTION = 3000;
 }

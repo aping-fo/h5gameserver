@@ -21,4 +21,7 @@ public class ErrorCode {
     //角色不存在
     public static final String ROLE_NOT_EXIST = "504";
 
+    //历史题库记录为空
+    public static final String Hitory_Question_Empty = "600";
+
 }
