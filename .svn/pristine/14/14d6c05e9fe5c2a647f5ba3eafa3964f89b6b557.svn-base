@@ -1,0 +1,9 @@
+package com.game.sdk.net;
+
+/**
+ * Created by lucky on 2018/10/11.
+ */
+public class Cmd {
+    //请求openid
+    public static final int GET_OPENID = 1001;
+}

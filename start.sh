@@ -1,0 +1,2 @@
+cd `dirname $0`
+nohup java -server -XX:+UseG1GC -Xmx512m -XX:MaxGCPauseMillis=200 -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=20 -XX:GCLogFileSize=50M -XX:ErrorFile=log/hs_error%p.log -Xloggc:log/gc-$DATE.log -XX:+DisableExplicitGC -XX:+HeapDumpOnOutOfMemoryError -cp bin:lib/* com.game.Start new > game.log 2>&1 &

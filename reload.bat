@@ -1,0 +1,3 @@
+java -cp bin;lib/* com.game.GameReload
+@echo 不要在意上面的报错，开始更新了,大概需要10s...
+@echo off
