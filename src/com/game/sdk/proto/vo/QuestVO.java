@@ -7,10 +7,11 @@ public class QuestVO {
     private int id;
     private String title;
     private String content;
-    private String iconUrl;
-    private String answer;
-    private String category;
-    private String difficulty;
+    private String contentImgUrl;
+    public String[] options;
+    private int answer;
+    private int category;
+    private int difficulty;
 
     public int getId() {
         return id;
@@ -36,35 +37,43 @@ public class QuestVO {
         this.content = content;
     }
 
-    public String getIconUrl() {
-        return iconUrl;
+    public String getContentImgUrl() {
+        return contentImgUrl;
     }
 
-    public void setIconUrl(String iconUrl) {
-        this.iconUrl = iconUrl;
+    public void setContentImgUrl(String contentImgUrl) {
+        this.contentImgUrl = contentImgUrl;
     }
 
-    public String getAnswer() {
+    public String[] getOptions() {
+        return options;
+    }
+
+    public void setOptions(String[] options) {
+        this.options = options;
+    }
+
+    public int getAnswer() {
         return answer;
     }
 
-    public void setAnswer(String answer) {
+    public void setAnswer(int answer) {
         this.answer = answer;
     }
 
-    public String getCategory() {
+    public int getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(int category) {
         this.category = category;
     }
 
-    public String getDifficulty() {
+    public int getDifficulty() {
         return difficulty;
     }
 
-    public void setDifficulty(String difficulty) {
+    public void setDifficulty(int difficulty) {
         this.difficulty = difficulty;
     }
 }

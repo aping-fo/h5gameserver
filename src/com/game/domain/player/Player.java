@@ -1,11 +1,72 @@
 package com.game.domain.player;
 
+import com.google.common.collect.Lists;
+
+import java.util.List;
+
 public class Player {
-    private int playerId;
-    private String name;
-    private String accName;// 平台账号
-    private int sex;// 性别 1男2女
+    private String openId;
+    private String nickName;
+    private int level;
+    private int totalQuestions; //总题数
+    private int answerSuccess; //正确答题数
+    private String historyCatergorysStr; //历史选题类型
+    private List<Integer> historyCatergorys = Lists.newArrayList();
 
 
+    public String getOpenId() {
+        return openId;
+    }
 
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int getTotalQuestions() {
+        return totalQuestions;
+    }
+
+    public void setTotalQuestions(int totalQuestions) {
+        this.totalQuestions = totalQuestions;
+    }
+
+    public int getAnswerSuccess() {
+        return answerSuccess;
+    }
+
+    public void setAnswerSuccess(int answerSuccess) {
+        this.answerSuccess = answerSuccess;
+    }
+
+    public String getHistoryCatergorysStr() {
+        return historyCatergorysStr;
+    }
+
+    public void setHistoryCatergorysStr(String historyCatergorysStr) {
+        this.historyCatergorysStr = historyCatergorysStr;
+    }
+
+    public List<Integer> getHistoryCatergorys() {
+        return historyCatergorys;
+    }
+
+    public void setHistoryCatergorys(List<Integer> historyCatergorys) {
+        this.historyCatergorys = historyCatergorys;
+    }
 }
