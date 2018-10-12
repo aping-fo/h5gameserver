@@ -2,88 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1174c46-9230-4ff1-8f07-412795778311" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/AIConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/AccountCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ActivityCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ActivityDropCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ActivityTaskCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/AffixCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ArtifactCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ArtifactLevelUpCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/AwakenAttributeCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/AwakeningSkillCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/BuffConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/BulletScreenConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/CdkeyConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ChargeConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/CopyConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/DeadDuelCameraCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/DropGoods.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/EndlessCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/EquipAddAttrCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/EquipInfoConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/EquipJewelCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/EquipStarCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/EquipStrengthCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/EquipUpCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ErrCode.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/EventFunctionCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/FameConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/FashionCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/FashionCollectCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/FashionUpCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/GangBuildCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/GangCopyCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/GangScienceCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/GangTrainingCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/GlobalConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/GoodsConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/GroupCopyCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/GuideConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/LadderCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/LittleHelperCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/LotteryCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/MailCompensationCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ModuleOpenCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/MonsterConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/MonsterRefreshConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/PetActivityConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/PetConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/PetMaterialConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/PetPieceConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/PetSkillConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/PlayerUpgradeCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/QTEConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/RandomTipsCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/RewardGroupCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/RewardItemCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/RewardMailCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/RobotNameCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/RoleInfoConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/SceneConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/SceneNpcCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ShopCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ShopTypeCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/SignCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/SkillCardComposeCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/SkillCardConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/SkillCardEffectConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/SkillCardTrainCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/SkillConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/SkillUpgradeCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/SuitConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/SysNotice.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/TaskConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/ThreeStarRewardCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/TitleConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/TitleSelectConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/TrialFieldCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/TurnViewDescribeCfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/UiInfoCinfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/VIPConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/game/data/AccountCfg.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/game/data/PlayerUpgradeCfg.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -96,14 +14,14 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.50363517">
+    <splitter split-orientation="horizontal" split-proportion="0.6688698">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="MessageHandlerServlet.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/com/game/sdk/web/MessageHandlerServlet.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="608">
-                  <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+                <state relative-caret-position="384">
+                  <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -156,64 +74,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MatcherVO.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/game/sdk/proto/vo/MatcherVO.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="112">
-                  <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-                  <folding>
-                    <element signature="e#246#247#0" expanded="true" />
-                    <element signature="e#275#276#0" expanded="true" />
-                    <element signature="e#319#320#0" expanded="true" />
-                    <element signature="e#355#356#0" expanded="true" />
-                    <element signature="e#390#391#0" expanded="true" />
-                    <element signature="e#421#422#0" expanded="true" />
-                    <element signature="e#469#470#0" expanded="true" />
-                    <element signature="e#509#510#0" expanded="true" />
-                    <element signature="e#539#540#0" expanded="true" />
-                    <element signature="e#568#569#0" expanded="true" />
-                    <element signature="e#609#610#0" expanded="true" />
-                    <element signature="e#645#646#0" expanded="true" />
-                    <element signature="e#677#678#0" expanded="true" />
-                    <element signature="e#705#706#0" expanded="true" />
-                    <element signature="e#748#749#0" expanded="true" />
-                    <element signature="e#782#783#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="PlayerService.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/game/service/PlayerService.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="144">
-                  <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Room.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/game/domain/quest/Room.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="208">
-                  <caret line="13" column="25" lean-forward="false" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#297#298#0" expanded="true" />
-                    <element signature="e#323#324#0" expanded="true" />
-                    <element signature="e#348#349#0" expanded="true" />
-                    <element signature="e#381#382#0" expanded="true" />
-                    <element signature="e#409#410#0" expanded="true" />
-                    <element signature="e#455#456#0" expanded="true" />
-                    <element signature="e#483#484#0" expanded="true" />
-                    <element signature="e#539#540#0" expanded="true" />
-                    <element signature="e#573#574#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="Cmd.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/com/game/sdk/net/Cmd.java">
               <provider selected="true" editor-type-id="text-editor">
@@ -227,52 +87,78 @@
           <file leaf-file-name="QuestVO.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/com/game/sdk/proto/vo/QuestVO.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="208">
-                  <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+                <state relative-caret-position="384">
+                  <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
                   <folding>
-                    <element signature="e#311#312#0" expanded="true" />
-                    <element signature="e#336#337#0" expanded="true" />
-                    <element signature="e#369#370#0" expanded="true" />
-                    <element signature="e#397#398#0" expanded="true" />
-                    <element signature="e#429#430#0" expanded="true" />
-                    <element signature="e#457#458#0" expanded="true" />
-                    <element signature="e#499#500#0" expanded="true" />
-                    <element signature="e#533#534#0" expanded="true" />
-                    <element signature="e#567#568#0" expanded="true" />
-                    <element signature="e#597#598#0" expanded="true" />
-                    <element signature="e#643#644#0" expanded="true" />
-                    <element signature="e#681#682#0" expanded="true" />
-                    <element signature="e#715#716#0" expanded="true" />
-                    <element signature="e#745#746#0" expanded="true" />
-                    <element signature="e#791#792#0" expanded="true" />
-                    <element signature="e#829#830#0" expanded="true" />
-                    <element signature="e#862#863#0" expanded="true" />
+                    <element signature="e#337#338#0" expanded="true" />
+                    <element signature="e#362#363#0" expanded="true" />
+                    <element signature="e#395#396#0" expanded="true" />
+                    <element signature="e#423#424#0" expanded="true" />
+                    <element signature="e#455#456#0" expanded="true" />
+                    <element signature="e#483#484#0" expanded="true" />
+                    <element signature="e#525#526#0" expanded="true" />
+                    <element signature="e#559#560#0" expanded="true" />
+                    <element signature="e#593#594#0" expanded="true" />
+                    <element signature="e#623#624#0" expanded="true" />
+                    <element signature="e#669#670#0" expanded="true" />
+                    <element signature="e#707#708#0" expanded="true" />
+                    <element signature="e#747#748#0" expanded="true" />
+                    <element signature="e#783#784#0" expanded="true" />
+                    <element signature="e#841#842#0" expanded="true" />
                     <element signature="e#891#892#0" expanded="true" />
-                    <element signature="e#935#936#0" expanded="true" />
-                    <element signature="e#971#972#0" expanded="true" />
-                    <element signature="e#1006#1007#0" expanded="true" />
-                    <element signature="e#1037#1038#0" expanded="true" />
-                    <element signature="e#1085#1086#0" expanded="true" />
-                    <element signature="e#1125#1126#0" expanded="true" />
-                    <element signature="e#1162#1163#0" expanded="true" />
-                    <element signature="e#1195#1196#0" expanded="true" />
-                    <element signature="e#1247#1248#0" expanded="true" />
-                    <element signature="e#1291#1292#0" expanded="true" />
+                    <element signature="e#927#928#0" expanded="true" />
+                    <element signature="e#957#958#0" expanded="true" />
+                    <element signature="e#1005#1006#0" expanded="true" />
+                    <element signature="e#1043#1044#0" expanded="true" />
+                    <element signature="e#1073#1074#0" expanded="true" />
+                    <element signature="e#1102#1103#0" expanded="true" />
+                    <element signature="e#1143#1144#0" expanded="true" />
+                    <element signature="e#1179#1180#0" expanded="true" />
+                    <element signature="e#1211#1212#0" expanded="true" />
+                    <element signature="e#1242#1243#0" expanded="true" />
+                    <element signature="e#1287#1288#0" expanded="true" />
+                    <element signature="e#1327#1328#0" expanded="true" />
+                    <element signature="e#1361#1362#0" expanded="true" />
+                    <element signature="e#1394#1395#0" expanded="true" />
+                    <element signature="e#1443#1444#0" expanded="true" />
+                    <element signature="e#1487#1488#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="QuestBankResp.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="QuestBankResp.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/com/game/sdk/proto/QuestBankResp.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="176">
-                  <caret line="14" column="55" lean-forward="false" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+                <state relative-caret-position="304">
+                  <caret line="22" column="3" lean-forward="false" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
                   <folding>
                     <element signature="e#325#326#0" expanded="true" />
                     <element signature="e#353#354#0" expanded="true" />
                     <element signature="e#402#403#0" expanded="true" />
-                    <element signature="e#436#437#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="PlayerDAO.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/game/dao/PlayerDAO.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="272">
+                  <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="PlayerService.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/com/game/service/PlayerService.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="416">
+                  <caret line="26" column="17" lean-forward="true" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#683#966#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -282,11 +168,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="QuestHandler.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="QuestHandler.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/com/game/sdk/handler/QuestHandler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="512">
-                  <caret line="40" column="57" lean-forward="false" selection-start-line="40" selection-start-column="57" selection-end-line="40" selection-end-column="57" />
+                <state relative-caret-position="448">
+                  <caret line="42" column="49" lean-forward="false" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
                   <folding />
                 </state>
               </provider>
@@ -307,8 +193,8 @@
           <file leaf-file-name="QuestBankService.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/com/game/service/QuestBankService.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="144">
-                  <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="27" />
+                <state relative-caret-position="96">
+                  <caret line="10" column="76" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="76" />
                   <folding />
                 </state>
               </provider>
@@ -378,22 +264,26 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="InitHandler.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/game/event/InitHandler.java">
+          <file leaf-file-name="QuestionCfg.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/game/data/QuestionCfg.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="32">
-                  <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+                <state relative-caret-position="176">
+                  <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="24" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="AbstractService.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/game/service/AbstractService.java">
+          <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/com/game/domain/player/Player.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="144">
-                  <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-                  <folding />
+                <state relative-caret-position="192">
+                  <caret line="12" column="39" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="39" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#499#500#0" expanded="true" />
+                    <element signature="e#535#536#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -426,10 +316,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/game/dao/PlayerDao.java" />
-        <option value="$PROJECT_DIR$/src/com/game/module/PlayerService.java" />
-        <option value="$PROJECT_DIR$/src/com/game/sdk/utils/LuckySdkUtil.java" />
-        <option value="$PROJECT_DIR$/src/com/game/sdk/utils/XmlParser.java" />
         <option value="$PROJECT_DIR$/src/com/game/util/CompressUtil.java" />
         <option value="$PROJECT_DIR$/src/com/game/util/ConfigData.java" />
         <option value="$PROJECT_DIR$/src/com/game/util/CommonUtil.java" />
@@ -450,7 +336,6 @@
         <option value="$PROJECT_DIR$/src/com/game/sdk/utils/CommandCode.java" />
         <option value="$PROJECT_DIR$/src/com/game/sdk/proto/OpenIDReq.java" />
         <option value="$PROJECT_DIR$/src/com/game/sdk/net/Result.java" />
-        <option value="$PROJECT_DIR$/src/com/game/service/PlayerService.java" />
         <option value="$PROJECT_DIR$/src/com/game/util/GameData.java" />
         <option value="$PROJECT_DIR$/build.xml" />
         <option value="$PROJECT_DIR$/.project" />
@@ -472,11 +357,16 @@
         <option value="$PROJECT_DIR$/src/com/game/domain/quest/Matcher.java" />
         <option value="$PROJECT_DIR$/src/com/game/sdk/web/MessageHandlerServlet.java" />
         <option value="$PROJECT_DIR$/src/com/game/sdk/net/Cmd.java" />
-        <option value="$PROJECT_DIR$/src/com/game/sdk/proto/vo/QuestVO.java" />
         <option value="$PROJECT_DIR$/src/com/game/sdk/proto/QuestBankResp.java" />
         <option value="$PROJECT_DIR$/src/com/game/service/QuestService.java" />
-        <option value="$PROJECT_DIR$/src/com/game/service/QuestBankService.java" />
         <option value="$PROJECT_DIR$/src/com/game/sdk/handler/QuestHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/game/service/QuestBankService.java" />
+        <option value="$PROJECT_DIR$/src/com/game/sdk/proto/vo/QuestVO.java" />
+        <option value="$PROJECT_DIR$/src/com/game/sdk/proto/QuestBankReq.java" />
+        <option value="$PROJECT_DIR$/src/com/game/domain/player/Player.java" />
+        <option value="$PROJECT_DIR$/src/com/game/dao/PlayerDao.java" />
+        <option value="$PROJECT_DIR$/src/com/game/dao/PlayerDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/game/service/PlayerService.java" />
       </list>
     </option>
   </component>
@@ -608,191 +498,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="proto" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="proto" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="net" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="handler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="annotation" />
+              <option name="myItemId" value="domain" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -819,6 +525,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1330,7 +1062,7 @@
       <option name="presentableId" value="Default" />
       <updated>1539172612661</updated>
       <workItem from="1539172621189" duration="1293000" />
-      <workItem from="1539217645107" duration="40075000" />
+      <workItem from="1539217645107" duration="43910000" />
     </task>
     <task id="LOCAL-00001" summary="12">
       <created>1539304678892</created>
@@ -1374,11 +1106,25 @@
       <option name="project" value="LOCAL" />
       <updated>1539315987945</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="delete">
+      <created>1539325404670</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1539325404670</updated>
+    </task>
+    <task id="LOCAL-00008" summary="delete">
+      <created>1539330306374</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1539330306374</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41368000" />
+    <option name="totallyTimeSpent" value="45203000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1429,7 +1175,8 @@
     <MESSAGE value="匹配，查询结果" />
     <MESSAGE value="增加机器人匹配结果" />
     <MESSAGE value="get quest bank" />
-    <option name="LAST_COMMIT_MESSAGE" value="get quest bank" />
+    <MESSAGE value="delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1450,44 +1197,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/game/util/Context.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/game/util/SerializeUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/game/util/ServerTimer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="973">
-          <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/game/util/ThreadService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="49" column="42" lean-forward="false" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/game/util/TimerObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -1767,14 +1476,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/game/service/PlayerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/game/domain/quest/Room.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -1886,56 +1587,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/game/sdk/web/MessageHandlerServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/game/sdk/net/Cmd.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/game/sdk/proto/vo/QuestVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="e#311#312#0" expanded="true" />
-            <element signature="e#336#337#0" expanded="true" />
-            <element signature="e#369#370#0" expanded="true" />
-            <element signature="e#397#398#0" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#457#458#0" expanded="true" />
-            <element signature="e#499#500#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-            <element signature="e#567#568#0" expanded="true" />
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#643#644#0" expanded="true" />
-            <element signature="e#681#682#0" expanded="true" />
-            <element signature="e#715#716#0" expanded="true" />
-            <element signature="e#745#746#0" expanded="true" />
-            <element signature="e#791#792#0" expanded="true" />
-            <element signature="e#829#830#0" expanded="true" />
-            <element signature="e#862#863#0" expanded="true" />
-            <element signature="e#891#892#0" expanded="true" />
-            <element signature="e#935#936#0" expanded="true" />
-            <element signature="e#971#972#0" expanded="true" />
-            <element signature="e#1006#1007#0" expanded="true" />
-            <element signature="e#1037#1038#0" expanded="true" />
-            <element signature="e#1085#1086#0" expanded="true" />
-            <element signature="e#1125#1126#0" expanded="true" />
-            <element signature="e#1162#1163#0" expanded="true" />
-            <element signature="e#1195#1196#0" expanded="true" />
-            <element signature="e#1247#1248#0" expanded="true" />
-            <element signature="e#1291#1292#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1949,14 +1605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/game/service/QuestBankService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/game/sdk/handler/QuestHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -1965,15 +1613,118 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/game/sdk/web/MessageHandlerServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/game/sdk/proto/vo/QuestVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+          <folding>
+            <element signature="e#337#338#0" expanded="true" />
+            <element signature="e#362#363#0" expanded="true" />
+            <element signature="e#395#396#0" expanded="true" />
+            <element signature="e#423#424#0" expanded="true" />
+            <element signature="e#455#456#0" expanded="true" />
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#525#526#0" expanded="true" />
+            <element signature="e#559#560#0" expanded="true" />
+            <element signature="e#593#594#0" expanded="true" />
+            <element signature="e#623#624#0" expanded="true" />
+            <element signature="e#669#670#0" expanded="true" />
+            <element signature="e#707#708#0" expanded="true" />
+            <element signature="e#747#748#0" expanded="true" />
+            <element signature="e#783#784#0" expanded="true" />
+            <element signature="e#841#842#0" expanded="true" />
+            <element signature="e#891#892#0" expanded="true" />
+            <element signature="e#927#928#0" expanded="true" />
+            <element signature="e#957#958#0" expanded="true" />
+            <element signature="e#1005#1006#0" expanded="true" />
+            <element signature="e#1043#1044#0" expanded="true" />
+            <element signature="e#1073#1074#0" expanded="true" />
+            <element signature="e#1102#1103#0" expanded="true" />
+            <element signature="e#1143#1144#0" expanded="true" />
+            <element signature="e#1179#1180#0" expanded="true" />
+            <element signature="e#1211#1212#0" expanded="true" />
+            <element signature="e#1242#1243#0" expanded="true" />
+            <element signature="e#1287#1288#0" expanded="true" />
+            <element signature="e#1327#1328#0" expanded="true" />
+            <element signature="e#1361#1362#0" expanded="true" />
+            <element signature="e#1394#1395#0" expanded="true" />
+            <element signature="e#1443#1444#0" expanded="true" />
+            <element signature="e#1487#1488#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/game/sdk/proto/QuestBankReq.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/game/sdk/proto/QuestBankResp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="14" column="55" lean-forward="false" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+        <state relative-caret-position="304">
+          <caret line="22" column="3" lean-forward="false" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
           <folding>
             <element signature="e#325#326#0" expanded="true" />
             <element signature="e#353#354#0" expanded="true" />
             <element signature="e#402#403#0" expanded="true" />
-            <element signature="e#436#437#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/game/data/QuestionCfg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/game/service/QuestBankService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="10" column="76" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/game/domain/player/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="39" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#499#500#0" expanded="true" />
+            <element signature="e#535#536#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/game/dao/PlayerDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/game/service/PlayerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="26" column="17" lean-forward="true" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#683#966#0" expanded="true" />
           </folding>
         </state>
       </provider>
