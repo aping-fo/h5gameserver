@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -120,27 +121,64 @@ public class QuestService extends AbstractService {
         allRooms.put(roomID, room);
     }
 
+    /**
+     * 匹配机器人
+     * @param source
+     */
     private void matchingRobot(Matcher source) {
+        if (source.exitFlag) {
+            return;
+        }
+        source.matchFlag = true;
+        allMatchers.remove(source.getOpenId());
 
+        int roomID = ROOMID_GEN.getAndIncrement();
+        Room room = new Room(roomID);
+        room.getRoles().put(source.getOpenId(), source);
+
+        Matcher robot = new Matcher(UUID.randomUUID().toString(), "ABC");
+        robot.setRobot(true);
+        robot.setRoomId(roomID);
+
+        room.getRoles().put(robot.getOpenId(), robot);
     }
 
+    /**
+     * 超时检查
+     */
     private void doCheckTimeOut() {
 
     }
 
 
+    /**
+     * 请求匹配
+     * @param openId
+     * @param req
+     * @return
+     */
     public Result startMatch(String openId, StartMatchReq req) {
         Matcher matcher = new Matcher(openId, req.getNickName());
         allMatchers.put(openId, matcher);
         return Result.valueOf(ErrorCode.OK, "ok");
     }
 
+    /**
+     * 退出匹配
+     * @param openId
+     * @return
+     */
     public Result endMatch(String openId) {
         Matcher matcher = allMatchers.remove(openId);
         matcher.exitFlag = true;
         return Result.valueOf(ErrorCode.OK, "ok");
     }
 
+    /**
+     * 查询匹配结果
+     * @param openId
+     * @return
+     */
     public Result queryMatchResult(String openId) {
         MatchResultResp resp = new MatchResultResp();
         String code = ErrorCode.OK;

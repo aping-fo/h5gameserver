@@ -31,7 +31,7 @@ public class QuestHandler {
 
     @Command(cmd = Cmd.GET_MATCH_RESULT, description = "获取匹配结果")
     public Result queryMatchResult(String openId) throws Exception {
-        Result result = questService.endMatch(openId);
+        Result result = questService.queryMatchResult(openId);
         return result;
     }
 }
