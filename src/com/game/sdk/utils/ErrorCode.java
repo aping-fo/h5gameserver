@@ -18,4 +18,7 @@ public class ErrorCode {
     //找不到对应的处理接口
     public static final String EXEC_ERROR = "503";
 
+    //角色不存在
+    public static final String ROLE_NOT_EXIST = "504";
+
 }

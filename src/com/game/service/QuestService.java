@@ -3,8 +3,11 @@ package com.game.service;
 import com.game.domain.quest.Matcher;
 import com.game.domain.quest.Room;
 import com.game.sdk.net.Result;
+import com.game.sdk.proto.MatchResultResp;
 import com.game.sdk.proto.StartMatchReq;
+import com.game.sdk.proto.vo.MatcherVO;
 import com.game.sdk.utils.ErrorCode;
+import com.game.util.JsonUtils;
 import com.game.util.TimerService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -136,6 +139,39 @@ public class QuestService extends AbstractService {
         Matcher matcher = allMatchers.remove(openId);
         matcher.exitFlag = true;
         return Result.valueOf(ErrorCode.OK, "ok");
+    }
+
+    public Result queryMatchResult(String openId) {
+        MatchResultResp resp = new MatchResultResp();
+        String code = ErrorCode.OK;
+
+        Matcher matcher = allMatchers.get(openId);
+        if (matcher == null) {
+            code = ErrorCode.ROLE_NOT_EXIST;
+        }
+
+        if (matcher.getRoomId() != 0) {
+            Room room = allRooms.get(matcher.getRoomId());
+            if (room == null) {
+                matcher.clean();
+                resp.setMatchSuccess(false);
+            } else {
+                resp.setMatchSuccess(true);
+                for (Matcher matcher1 : room.getRoles().values()) {
+                    MatcherVO vo = new MatcherVO();
+                    vo.setOpenId(matcher1.getOpenId());
+                    vo.setNickName(matcher1.getNickName());
+                    vo.setRoomId(matcher1.getRoomId());
+                    vo.setRobot(false);
+
+                    resp.getRoles().add(vo);
+                }
+            }
+        } else {
+            resp.setMatchSuccess(false);
+        }
+
+        return Result.valueOf(code, resp);
     }
 
 }

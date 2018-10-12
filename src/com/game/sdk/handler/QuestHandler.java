@@ -4,9 +4,7 @@ import com.game.sdk.annotation.Command;
 import com.game.sdk.annotation.Handler;
 import com.game.sdk.net.Cmd;
 import com.game.sdk.net.Result;
-import com.game.sdk.proto.OpenIDReq;
 import com.game.sdk.proto.StartMatchReq;
-import com.game.sdk.utils.ErrorCode;
 import com.game.service.QuestService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -27,14 +25,13 @@ public class QuestHandler {
 
     @Command(cmd = Cmd.END_MATCH, description = "退出匹配")
     public Result endMatch(String openId) throws Exception {
-
         Result result = questService.endMatch(openId);
         return result;
     }
 
-    @Command(cmd = Cmd.END_MATCH, description = "获取匹配结果")
-    public Result getMatchResult(String openId, OpenIDReq req) throws Exception {
-
-        return Result.valueOf(ErrorCode.OK, "ssssssssssssss");
+    @Command(cmd = Cmd.GET_MATCH_RESULT, description = "获取匹配结果")
+    public Result queryMatchResult(String openId) throws Exception {
+        Result result = questService.endMatch(openId);
+        return result;
     }
 }

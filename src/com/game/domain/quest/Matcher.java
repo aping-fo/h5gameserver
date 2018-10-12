@@ -55,4 +55,9 @@ public class Matcher {
     public void setNickName(String nickName) {
         this.nickName = nickName;
     }
+
+    public void clean(){
+        roomId = 0;
+        matchFlag = false;
+    }
 }
