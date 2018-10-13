@@ -9,10 +9,20 @@ import java.util.Map;
  */
 public class Room {
     private int id;
+    private long startTime;
     private Map<String, Matcher> roles = Maps.newConcurrentMap();
+
+    public long getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
+    }
 
     public Room(int id) {
         this.id = id;
+        this.startTime = System.currentTimeMillis();
     }
 
     public int getId() {

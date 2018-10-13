@@ -3,14 +3,11 @@ package com.game.service;
 import com.game.domain.quest.Matcher;
 import com.game.domain.quest.Room;
 import com.game.sdk.net.Result;
-import com.game.sdk.proto.MatchResultResp;
 import com.game.sdk.proto.HistoryQuestionResp;
+import com.game.sdk.proto.MatchResultResp;
 import com.game.sdk.proto.StartMatchReq;
 import com.game.sdk.proto.vo.MatcherVO;
-import com.game.sdk.proto.vo.HistoryQuestionVO;
-
 import com.game.sdk.utils.ErrorCode;
-import com.game.util.JsonUtils;
 import com.game.util.TimerService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +32,7 @@ public class QuestService extends AbstractService {
      */
     private final Map<Integer, Room> allRooms = new ConcurrentHashMap<>();
     private final Map<String, Matcher> allMatchers = new ConcurrentHashMap<>();
-    private final int MATCH_TIMES = 5;
+    private final int MATCH_TIMES = 2;
     private final AtomicInteger ROOMID_GEN = new AtomicInteger(100); //房间ID
 
     @Override
@@ -62,7 +59,7 @@ public class QuestService extends AbstractService {
                     logger.error("check timeout schedule error", e);
                 }
             }
-        }, 1, 1, TimeUnit.SECONDS);
+        }, 1, 1, TimeUnit.MINUTES);
     }
 
     private void doMatching() {
@@ -118,14 +115,12 @@ public class QuestService extends AbstractService {
         matcher1.setRoomId(roomID);
         matcher2.setRoomId(roomID);
 
-        allMatchers.remove(matcher1.getOpenId());
-        allMatchers.remove(matcher2.getOpenId());
-
         allRooms.put(roomID, room);
     }
 
     /**
      * 匹配机器人
+     *
      * @param source
      */
     private void matchingRobot(Matcher source) {
@@ -133,7 +128,6 @@ public class QuestService extends AbstractService {
             return;
         }
         source.matchFlag = true;
-        allMatchers.remove(source.getOpenId());
 
         int roomID = ROOMID_GEN.getAndIncrement();
         Room room = new Room(roomID);
@@ -150,12 +144,15 @@ public class QuestService extends AbstractService {
      * 超时检查
      */
     private void doCheckTimeOut() {
-
+        for (Room room : allRooms.values()) {
+            //TODO 超时检测
+        }
     }
 
 
     /**
      * 请求匹配
+     *
      * @param openId
      * @param req
      * @return
@@ -168,6 +165,7 @@ public class QuestService extends AbstractService {
 
     /**
      * 退出匹配
+     *
      * @param openId
      * @return
      */
@@ -179,10 +177,11 @@ public class QuestService extends AbstractService {
 
     /**
      * 查询匹配结果
+     *
      * @param openId
      * @return
      */
-    public Result queryMatchResult(String openId) throws Exception{
+    public Result queryMatchResult(String openId) throws Exception {
         MatchResultResp resp = new MatchResultResp();
         String code = ErrorCode.OK;
 
@@ -217,10 +216,11 @@ public class QuestService extends AbstractService {
 
     /**
      * 查询历史题库
+     *
      * @param openId
      * @return
      */
-    public Result getHistoryQuestion(String openId) throws Exception{
+    public Result getHistoryQuestion(String openId) throws Exception {
         String code = ErrorCode.OK;
         HistoryQuestionResp resp = new HistoryQuestionResp();
 

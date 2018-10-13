@@ -14,10 +14,5 @@ import com.game.sdk.utils.ErrorCode;
 @Handler
 public class LoginHandler {
 
-    @Command(cmd = Cmd.GET_OPENID, description = "请求OPENID")
-    public Result getOpenID(String openId, OpenIDReq req) throws Exception {
-        //String url = "https://api.weixin.qq.com/sns/jscode2session?appid=wx7004cb8d1a5b3df5&secret=80ab0be6003cec743ea964dedfad101c&grant_type=authorization_code&js_code=" + req.getCode();
-        //String json = HttpClient.sendGetRequest(url);
-        return Result.valueOf(ErrorCode.OK, "ssssssssssssss");
-    }
+
 }

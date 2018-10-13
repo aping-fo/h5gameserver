@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.nio.charset.Charset;
 import java.util.Base64;
 
@@ -49,7 +50,7 @@ public class MessageHandlerServlet extends SdkServlet {
                 render(resp, 0, ErrorCode.PARAM_ERROR);
                 return;
             }
-
+            //data = URLDecoder.decode(data, "UTF-8");
             data = new String(Base64.getDecoder().decode(data), Charset.forName("UTF-8"));
             String md5Str = SysConfig.oauthsecret + "&" + data;
             String mySign = EncoderHandler.md5(md5Str);
@@ -72,8 +73,8 @@ public class MessageHandlerServlet extends SdkServlet {
                 result = (Result) exector.invoke(openId, paramObject);
             }
 
-            if (logger.isDebugEnabled()) {
-                logger.debug("send data ==> " + result);
+            if (logger.isInfoEnabled()) {
+                logger.info("send data ==> " + JsonUtils.object2String(result));
             }
             render(resp, cmd, result.code, result.data);
         } catch (Throwable e) {

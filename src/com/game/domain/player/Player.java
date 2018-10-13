@@ -10,9 +10,10 @@ public class Player {
     private int level;
     private int totalQuestions; //总题数
     private int answerSuccess; //正确答题数
-    private String historyCatergorysStr; //历史选题类型
+    private String historyCatergorysStr = ""; //历史选题类型
     private List<Integer> historyCatergorys = Lists.newArrayList();
-
+    private String historyQuestionsStr = ""; //历史答题
+    private List<Integer> historyQuestions = Lists.newArrayList();
 
     public String getOpenId() {
         return openId;
@@ -20,6 +21,22 @@ public class Player {
 
     public void setOpenId(String openId) {
         this.openId = openId;
+    }
+
+    public String getHistoryQuestionsStr() {
+        return historyQuestionsStr;
+    }
+
+    public void setHistoryQuestionsStr(String historyQuestionsStr) {
+        this.historyQuestionsStr = historyQuestionsStr;
+    }
+
+    public List<Integer> getHistoryQuestions() {
+        return historyQuestions;
+    }
+
+    public void setHistoryQuestions(List<Integer> historyQuestions) {
+        this.historyQuestions = historyQuestions;
     }
 
     public String getNickName() {

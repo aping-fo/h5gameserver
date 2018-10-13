@@ -3,6 +3,7 @@ package a8;
 import com.game.domain.MarryRank;
 import com.game.sdk.proto.OpenIDReq;
 import com.game.util.JsonUtils;
+import com.google.common.base.Charsets;
 import com.sun.org.apache.xpath.internal.operations.String;
 
 import java.nio.charset.Charset;
@@ -146,6 +147,7 @@ public class Main<T, R> {
         req.setAvatarUrl("ssssssssss");
 
 
+        System.out.println(Base64.getEncoder().encode("你好，聪哥".getBytes(Charsets.UTF_8)));
         System.out.println(Base64.getEncoder().encode(JsonUtils.object2String(req).getBytes()));
         System.out.println(new java.lang.String(Base64.getDecoder().decode("5ZWKYWQ="), Charset.forName("UTF-8")));
     }

@@ -9,7 +9,7 @@
     <bean class="com.zaxxer.hikari.HikariDataSource" destroy-method="close" id="dataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="jdbcUrl">
-            <value><![CDATA[jdbc:mysql://127.0.0.1:3306/game1?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true]]></value>
+            <value><![CDATA[jdbc:mysql://192.168.0.200:3306/medicinedb?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true]]></value>
         </property>
         <property name="username" value="root"/>
         <property name="password" value="root"/>
@@ -39,7 +39,7 @@
     <bean class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" id="dataSource2">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url">
-            <value><![CDATA[jdbc:mysql://127.0.0.1:3306/game1?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true]]></value>
+            <value><![CDATA[jdbc:mysql://192.168.0.200:3306/medicinedb?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true]]></value>
         </property>
         <property name="username" value="root"/>
         <property name="password" value="root"/>
