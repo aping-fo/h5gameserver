@@ -1,6 +1,5 @@
 package com.game.service;
 
-import com.game.data.LevelCfg;
 import com.game.data.QuestionCfg;
 import com.game.domain.player.Player;
 import com.game.domain.quest.Answer;
@@ -151,7 +150,10 @@ public class QuestBankService extends AbstractService {
 
         }
 
-        playerService.checkForLevelup(openId, result);
+        Player player = playerService.getPlayer(openId);
+        player.addHistoryQuestion(room.getCurrentQuest().getId());
+
+        playerService.answerResult(openId, result);
 
         room.getAnswers().put(answerResult.getCfgid(), answerResult);
         room.cleanQuest();
@@ -219,6 +221,8 @@ public class QuestBankService extends AbstractService {
         if (room == null) {
             return Result.valueOf(ErrorCode.ROLE_NOT_IN_GAME, "0");
         }
+
+        playerService.roundResult(openId, true);
 
         room.setVictoryOpenid(openId);
 

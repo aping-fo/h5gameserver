@@ -17,6 +17,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -34,7 +35,13 @@ public class PlayerService {
                 @Override
                 public Player load(String openId) throws Exception {
                     logger.info("Cache loaded for " + openId);
-                    return playerDAO.queryPlayer(openId);
+                    Player player = playerDAO.queryPlayer(openId);
+                    if (player != null) {
+                        List<Integer> historyQuestions = JsonUtils.string2Object(player.getHistoryQuestionsStr(), List.class);
+                        player.setHistoryQuestions(historyQuestions);
+                    }
+
+                    return player;
                 }
             });
 
@@ -122,37 +129,66 @@ public class PlayerService {
      *
      * @param openId
      */
-    public int checkForLevelup(String openId, boolean victory) {
+    public int checkForLevelup(String openId, int deltaExp) {
+        Player player = players.getUnchecked(openId);
+        LevelCfg cfg = ConfigData.getConfig(LevelCfg.class, player.getLevel());
+        if (cfg == null) {
+            return player.getLevel();
+        }
+        if (deltaExp < 0) {
+            player.setExp(0);
+        } else {
+            int deltLevel = 0;
+            while (deltaExp > 0) {
+                int nextLevel = player.getLevel() + 1;
+                cfg = ConfigData.getConfig(LevelCfg.class, nextLevel);
+                if (cfg == null) {
+                    return player.getLevel();
+                }
+                if (deltaExp < cfg.levelUpScore) {
+                    break;
+                }
+
+                deltaExp -= cfg.levelUpScore;
+                deltLevel += 1;
+            }
+
+            player.setExp(deltaExp);
+            player.setLevel(player.getLevel() + deltLevel);
+        }
+
+        return player.getLevel();
+    }
+
+    /**
+     * 答题结果，奖励
+     *
+     * @param openId
+     */
+    public int answerResult(String openId, boolean victory) {
         Player player = players.getUnchecked(openId);
         LevelCfg cfg = ConfigData.getConfig(LevelCfg.class, player.getLevel());
         if (cfg == null) {
             return player.getLevel();
         }
         int exp = victory ? cfg.rightScore : cfg.wrongScore;
+        return checkForLevelup(openId, exp);
+    }
 
-        int deltExp = player.getExp() + exp;
-        if (deltExp < 0) {
-            player.setExp(0);
-        } else {
-            int deltLevel = 0;
-            while (deltExp > 0) {
-                int nextLevel = player.getLevel() + 1;
-                cfg = ConfigData.getConfig(LevelCfg.class, nextLevel);
-                if (cfg == null) {
-                    return player.getLevel();
-                }
-                if (deltExp < cfg.levelUpScore) {
-                    break;
-                }
-
-                deltExp -= cfg.levelUpScore;
-                deltLevel += 1;
-            }
-
-            player.setExp(deltExp);
-            player.setLevel(player.getLevel() + deltLevel);
+    /**
+     * 每局胜利奖励
+     *
+     * @param openId
+     * @param victory
+     * @return
+     */
+    public int roundResult(String openId, boolean victory) {
+        Player player = players.getUnchecked(openId);
+        LevelCfg cfg = ConfigData.getConfig(LevelCfg.class, player.getLevel());
+        if (cfg == null) {
+            return player.getLevel();
         }
 
-        return player.getLevel();
+        return checkForLevelup(openId, 10);
     }
 }

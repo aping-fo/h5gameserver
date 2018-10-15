@@ -1,5 +1,6 @@
 package com.game.domain.player;
 
+import com.game.util.JsonUtils;
 import com.google.common.collect.Lists;
 
 import java.util.List;
@@ -42,6 +43,14 @@ public class Player {
 
     public List<Integer> getHistoryQuestions() {
         return historyQuestions;
+    }
+
+    public void addHistoryQuestion(int questionId) {
+        historyQuestions.add(0, questionId);
+        if (historyQuestions.size() > 30) {
+            historyQuestions.remove(30);
+        }
+        historyQuestionsStr = JsonUtils.object2String(historyQuestions);
     }
 
     public void setHistoryQuestions(List<Integer> historyQuestions) {
