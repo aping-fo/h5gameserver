@@ -61,6 +61,10 @@ public class PlayerService {
         Player player = new Player();
         player.setNickName(nickName);
         player.setOpenId(openId);
+        player.setLevel(1);
+        player.setTotalQuestions(0);
+        player.setAnswerSuccess(0);
+        player.setHistoryCatergorysStr("");
         playerDAO.insert(player);
         players.put(openId, player);
 

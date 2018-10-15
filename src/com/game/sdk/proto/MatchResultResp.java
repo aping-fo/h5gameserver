@@ -9,15 +9,15 @@ import java.util.List;
  * Created by lucky on 2018/10/12.
  */
 public class MatchResultResp {
-        /**
-         * 是否匹配成功
-         */
-        private boolean matchSuccess;
+    /**
+     * 是否匹配成功
+     */
+    private boolean matchSuccess;
 
-        /**
-         * 房间成员
-         */
-        private List<MatcherVO> roles = Lists.newArrayListWithCapacity(2);
+    /**
+     * 房间成员
+     */
+    private List<MatcherVO> roles = Lists.newArrayListWithCapacity(2);
 
     public List<MatcherVO> getRoles() {
         return roles;

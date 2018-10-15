@@ -4,6 +4,8 @@ import com.game.sdk.annotation.Command;
 import com.game.sdk.annotation.Handler;
 import com.game.sdk.net.Cmd;
 import com.game.sdk.net.Result;
+import com.game.sdk.proto.AnswerQuestionReq;
+import com.game.sdk.proto.GetAnswerReq;
 import com.game.sdk.proto.StartMatchReq;
 import com.game.service.QuestBankService;
 import com.game.service.QuestService;
@@ -42,6 +44,36 @@ public class QuestHandler {
     public Result getQuests(String openId) throws Exception {
         Result result = questBankService.getQuests(openId);
         return result;
+    }
+
+    @Command(cmd = Cmd.GET_QUEST, description = "请求亮题")
+    public Result getQuestContent(String openId) throws Exception {
+        return questBankService.getQuest(openId);
+    }
+
+    @Command(cmd = Cmd.ANSWER_QUEST, description = "请求答题")
+    public Result answerQuestion(String openId, AnswerQuestionReq req) throws Exception {
+        return questBankService.answerTheQuestion(openId, req.getAnswer());
+    }
+
+    @Command(cmd = Cmd.GET_ANSWER, description = "请求答案")
+    public Result answerQuestion(String openId, GetAnswerReq req) throws Exception {
+        return questBankService.getAnswer(openId, req.getCfgId());
+    }
+
+    @Command(cmd = Cmd.ROB_ANSWER, description = "抢答")
+    public Result robAnswer(String openId) throws Exception {
+        return questBankService.robAnswer(openId);
+    }
+
+    @Command(cmd = Cmd.GET_ROOM_RESULT, description = "获取答题信息")
+    public Result getRoomAnswers(String openId) throws Exception {
+        return questBankService.getRoomAnswers(openId);
+    }
+
+    @Command(cmd = Cmd.SUBMIT_VICTORY, description = "提交胜利")
+    public Result sumbitResult(String openId) throws Exception {
+        return questBankService.sumbitResult(openId);
     }
 
 //    @Command(cmd = Cmd.GET_HISTORY_QUESTION, description = "请求历史题库")

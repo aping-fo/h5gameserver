@@ -71,7 +71,7 @@ public class QuestService extends AbstractService {
 
             for (int i = 0; i < MATCH_TIMES; i++) {
                 for (Matcher target : allMatchers.values()) {
-                    if (source.getOpenId().equals(target)) { //自己
+                    if (source.getOpenId().equals(target.getOpenId())) { //自己
                         continue;
                     }
 
@@ -229,18 +229,10 @@ public class QuestService extends AbstractService {
     }
 
     public Matcher getMatcher(String openId){
-        if(!allMatchers.containsKey(openId)){
-            return null;
-        }
-
         return allMatchers.get(openId);
     }
 
     public Room getRoom(int roomId){
-        if(!allRooms.containsKey(roomId)){
-            return null;
-        }
-
         return allRooms.get(roomId);
     }
 }

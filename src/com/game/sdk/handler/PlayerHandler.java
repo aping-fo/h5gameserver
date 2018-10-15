@@ -26,13 +26,13 @@ public class PlayerHandler {
     }
 
 
-    @Command(cmd = Cmd.GET_ROLE, description = "请求创角色")
+    @Command(cmd = Cmd.CREATE_ROLE, description = "请求创角色")
     public Result createRole(String openId, CreateRoleReq req) throws Exception {
         Result result = playerService.createPlayer(openId, req.getNickName());
         return result;
     }
 
-    @Command(cmd = Cmd.CREATE_ROLE, description = "请求创建角色")
+    @Command(cmd = Cmd.GET_ROLE, description = "请求创建角色")
     public Result getRole(String openId) throws Exception {
         Result result = playerService.getRole(openId);
         return result;

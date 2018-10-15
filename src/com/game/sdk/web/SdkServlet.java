@@ -24,6 +24,8 @@ public class SdkServlet extends HttpServlet {
             resp.addHeader("Pragma", "no-cache");
             resp.addHeader("Accept", "*/*");
             resp.addHeader("Access-Control-Allow-Origin", "*");
+            resp.addHeader("content-type","text/html;charset=UTF-8");
+            resp.setCharacterEncoding("UTF-8");
 
             Map<String, String> result = Maps.newHashMap();
             result.put("cmd", String.valueOf(cmd));
