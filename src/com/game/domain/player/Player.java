@@ -8,12 +8,21 @@ public class Player {
     private String openId;
     private String nickName;
     private int level;
+    private int exp;
     private int totalQuestions; //总题数
     private int answerSuccess; //正确答题数
     private String historyCatergorysStr = ""; //历史选题类型
     private List<Integer> historyCatergorys = Lists.newArrayList();
     private String historyQuestionsStr = ""; //历史答题
     private List<Integer> historyQuestions = Lists.newArrayList();
+
+    public int getExp() {
+        return exp;
+    }
+
+    public void setExp(int exp) {
+        this.exp = exp;
+    }
 
     public String getOpenId() {
         return openId;

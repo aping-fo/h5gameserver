@@ -1,11 +1,13 @@
 package com.game.service;
 
 import com.game.dao.PlayerDAO;
+import com.game.data.LevelCfg;
 import com.game.domain.player.Player;
 import com.game.sdk.http.HttpClient;
 import com.game.sdk.net.Result;
 import com.game.sdk.proto.OpenIDResp;
 import com.game.sdk.utils.ErrorCode;
+import com.game.util.ConfigData;
 import com.game.util.JsonUtils;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
@@ -115,4 +117,42 @@ public class PlayerService {
         return Result.valueOf(code, resp);
     }
 
+    /**
+     * 增加经验
+     *
+     * @param openId
+     */
+    public int checkForLevelup(String openId, boolean victory) {
+        Player player = players.getUnchecked(openId);
+        LevelCfg cfg = ConfigData.getConfig(LevelCfg.class, player.getLevel());
+        if (cfg == null) {
+            return player.getLevel();
+        }
+        int exp = victory ? cfg.rightScore : cfg.wrongScore;
+
+        int deltExp = player.getExp() + exp;
+        if (deltExp < 0) {
+            player.setExp(0);
+        } else {
+            int deltLevel = 0;
+            while (deltExp > 0) {
+                int nextLevel = player.getLevel() + 1;
+                cfg = ConfigData.getConfig(LevelCfg.class, nextLevel);
+                if (cfg == null) {
+                    return player.getLevel();
+                }
+                if (deltExp < cfg.levelUpScore) {
+                    break;
+                }
+
+                deltExp -= cfg.levelUpScore;
+                deltLevel += 1;
+            }
+
+            player.setExp(deltExp);
+            player.setLevel(player.getLevel() + deltLevel);
+        }
+
+        return player.getLevel();
+    }
 }

@@ -1,6 +1,8 @@
 package com.game.service;
 
+import com.game.data.LevelCfg;
 import com.game.data.QuestionCfg;
+import com.game.domain.player.Player;
 import com.game.domain.quest.Answer;
 import com.game.domain.quest.Matcher;
 import com.game.domain.quest.Room;
@@ -27,6 +29,8 @@ public class QuestBankService extends AbstractService {
 
     @Autowired
     private QuestService questService;
+    @Autowired
+    private PlayerService playerService;
 
     public Result getQuests(String openId) throws Exception {
         QuestBankResp resp = new QuestBankResp();
@@ -146,6 +150,9 @@ public class QuestBankService extends AbstractService {
             answerResult.setResult(true);
 
         }
+
+        playerService.checkForLevelup(openId, result);
+
         room.getAnswers().put(answerResult.getCfgid(), answerResult);
         room.cleanQuest();
         Map<String, Object> resp = Maps.newHashMapWithExpectedSize(1);
