@@ -227,4 +227,20 @@ public class QuestService extends AbstractService {
 
         return Result.valueOf(code, resp);
     }
+
+    public Matcher getMatcher(String openId){
+        if(!allMatchers.containsKey(openId)){
+            return null;
+        }
+
+        return allMatchers.get(openId);
+    }
+
+    public Room getRoom(int roomId){
+        if(!allRooms.containsKey(roomId)){
+            return null;
+        }
+
+        return allRooms.get(roomId);
+    }
 }

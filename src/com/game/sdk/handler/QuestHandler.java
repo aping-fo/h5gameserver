@@ -44,9 +44,9 @@ public class QuestHandler {
         return result;
     }
 
-    @Command(cmd = Cmd.GET_HISTORY_QUESTION, description = "请求历史题库")
-    public Result getHistoryQuestion(String openId) throws Exception {
-        Result result = questService.getHistoryQuestion(openId);
-        return result;
-    }
+//    @Command(cmd = Cmd.GET_HISTORY_QUESTION, description = "请求历史题库")
+//    public Result getHistoryQuestion(String openId) throws Exception {
+//        Result result = questService.queryistoryQuestion(openId);
+//        return result;
+//    }
 }

@@ -1,5 +1,7 @@
 package com.game.util;
 
+import com.google.common.collect.Lists;
+
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
@@ -100,6 +102,18 @@ public class RandomUtil {
 			}
 		}
 		return -1;// 不可能发生了
+	}
+
+	public static List<Integer> getRandomIndexs(int maxIndex, int count){
+		List<Integer> ret = Lists.newArrayList();
+
+		while(ret.size() < count){
+			int index = ThreadLocalRandom.current().nextInt(maxIndex);
+			if(!ret.contains(index)){
+				ret.add(index);
+			}
+		}
+		return ret;
 	}
 
 	

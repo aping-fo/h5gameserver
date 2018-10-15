@@ -10,15 +10,15 @@ import java.util.List;
  */
 public class QuestBankResp {
     /**
-     * 房间成员
+     *  问题列表
      */
-    private List<QuestVO> roles = Lists.newArrayList();
+    private List<QuestVO> questions = Lists.newArrayList();
 
-    public List<QuestVO> getRoles() {
-        return roles;
+    public List<QuestVO> getQuestions() {
+        return questions;
     }
 
-    public void setRoles(List<QuestVO> roles) {
-        this.roles = roles;
+    public void setQuestions(List<QuestVO> questions) {
+        this.questions = questions;
     }
 }

@@ -46,7 +46,7 @@ public class PlayerService {
     public Player getPlayer(String openId) {
         try {
             return players.getUnchecked(openId);
-        }catch (Exception e) {
+        } catch (Exception e) {
             return null;
         }
     }
@@ -83,8 +83,9 @@ public class PlayerService {
         Map<String, Object> result = JsonUtils.string2Map(json);
         openId = (String) result.get("openid");
         try {
-            Player player = playerDAO.queryPlayer(openId);
-        }catch (Exception e) {
+            Player player = players.get(openId);
+            resp.setHasRole(true);
+        } catch (Exception e) {
             resp.setHasRole(false);
         }
         resp.setOpenId(openId);
