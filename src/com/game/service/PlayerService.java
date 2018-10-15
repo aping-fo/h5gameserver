@@ -27,7 +27,7 @@ public class PlayerService {
 
     private final LoadingCache<String, Player> players = CacheBuilder.newBuilder()
             .expireAfterAccess(600, TimeUnit.SECONDS)
-            .maximumSize(3000)
+            .maximumSize(5000)
             .build(new CacheLoader<String, Player>() {
                 @Override
                 public Player load(String openId) throws Exception {
