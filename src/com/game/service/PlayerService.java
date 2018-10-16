@@ -96,7 +96,7 @@ public class PlayerService {
         Map<String, Object> result = JsonUtils.string2Map(json);
         openId = (String) result.get("openid");
         try {
-            Player player = players.get(openId);
+            players.get(openId);
             resp.setHasRole(true);
         } catch (Exception e) {
             resp.setHasRole(false);

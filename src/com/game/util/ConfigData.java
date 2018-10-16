@@ -1,6 +1,8 @@
 package com.game.util;
 
 
+import com.game.data.GlobalConfig;
+
 import java.util.Collection;
 
 /**
@@ -9,14 +11,13 @@ import java.util.Collection;
 public class ConfigData {
 
 
-    //private static GlobalConfig globalCfg;
+    public static GlobalConfig globalCfg;
 
 
     public static void init() {
-
-        //globalCfg = GameData.getConfig(GlobalConfig.class, 1);
-
+        globalCfg = GameData.getConfig(GlobalConfig.class, 1);
     }
+
 
     public static <T> T getConfig(Class<T> t, int id) {
         T cfg = GameData.getConfig(t, id);
