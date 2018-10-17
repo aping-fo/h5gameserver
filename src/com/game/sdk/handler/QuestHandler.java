@@ -6,6 +6,7 @@ import com.game.sdk.net.Cmd;
 import com.game.sdk.net.Result;
 import com.game.sdk.proto.AnswerQuestionReq;
 import com.game.sdk.proto.GetAnswerReq;
+import com.game.sdk.proto.JoinRoomReq;
 import com.game.sdk.proto.StartMatchReq;
 import com.game.service.QuestBankService;
 import com.game.service.QuestService;
@@ -40,15 +41,15 @@ public class QuestHandler {
         return result;
     }
 
-    @Command(cmd = Cmd.GET_QUEST_BANK, description = "请求题库")
+    @Command(cmd = Cmd.GET_QUEST_BANK_CATEGORY, description = "请求题库类型")
     public Result getQuests(String openId) throws Exception {
-        Result result = questBankService.getQuests(openId);
+        Result result = questBankService.getQuestCategorys(openId);
         return result;
     }
 
-    @Command(cmd = Cmd.GET_QUEST, description = "请求亮题")
+    @Command(cmd = Cmd.GET_QUEST_INDEX, description = "请求亮题")
     public Result getQuestContent(String openId) throws Exception {
-        return questBankService.getQuest(openId);
+        return questBankService.getQuestIndex(openId);
     }
 
     @Command(cmd = Cmd.ANSWER_QUEST, description = "请求答题")
@@ -66,6 +67,11 @@ public class QuestHandler {
         return questBankService.robAnswer(openId);
     }
 
+    @Command(cmd = Cmd.CHECK_ROB, description = "检查是否被抢答")
+    public Result checkRob(String openId) throws Exception {
+        return questBankService.checkRob(openId);
+    }
+
     @Command(cmd = Cmd.GET_ROOM_RESULT, description = "获取答题信息")
     public Result getRoomAnswers(String openId) throws Exception {
         return questBankService.getRoomAnswers(openId);
@@ -74,6 +80,16 @@ public class QuestHandler {
     @Command(cmd = Cmd.SUBMIT_VICTORY, description = "提交胜利")
     public Result sumbitResult(String openId) throws Exception {
         return questBankService.sumbitResult(openId);
+    }
+
+    @Command(cmd = Cmd.CREATE_ROOM, description = "创建房间")
+    public Result createRoom(String openId) throws Exception {
+        return questService.createRoom(openId);
+    }
+
+    @Command(cmd = Cmd.JOIN_ROOM, description = "加入房间")
+    public Result joinRoom(String openId, JoinRoomReq req) throws Exception {
+        return questService.joinRoom(openId, req.getRoomID());
     }
 
 //    @Command(cmd = Cmd.GET_HISTORY_QUESTION, description = "请求历史题库")

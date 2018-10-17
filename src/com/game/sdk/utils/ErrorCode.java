@@ -23,6 +23,8 @@ public class ErrorCode {
 
     //角色不在游戏
     public static final String ROLE_NOT_IN_GAME = "505";
+    //房间不存在
+    public static final String ROOM_NOT_EXIST = "506";
 
     //历史题库记录为空
     public static final String Hitory_Question_Empty = "600";

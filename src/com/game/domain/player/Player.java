@@ -104,4 +104,9 @@ public class Player {
     public void setHistoryCatergorys(List<Integer> historyCatergorys) {
         this.historyCatergorys = historyCatergorys;
     }
+
+    public void addHistoryCatergory(int catergory) {
+        historyCatergorys.add(catergory);
+        historyCatergorysStr = JsonUtils.object2String(historyCatergorys);
+    }
 }

@@ -12,6 +12,7 @@ public class QuestVO {
     private int answer;
     private int category;
     private int difficulty;
+    private int index;
 
     public int getId() {
         return id;
@@ -75,5 +76,13 @@ public class QuestVO {
 
     public void setDifficulty(int difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
     }
 }

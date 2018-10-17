@@ -1,5 +1,6 @@
 package com.game.service;
 
+import com.game.domain.player.Player;
 import com.game.domain.quest.Matcher;
 import com.game.domain.quest.Room;
 import com.game.sdk.net.Result;
@@ -25,7 +26,8 @@ public class QuestService extends AbstractService {
 
     @Autowired
     private TimerService timerService;
-
+    @Autowired
+    private PlayerService playerService;
 
     /**
      * 匹配房间,玩家ID 对房间
@@ -65,6 +67,7 @@ public class QuestService extends AbstractService {
     private void doMatching() {
         for (Matcher source : allMatchers.values()) {
             if (source.matchFlag //已经匹配成功
+                    || source.isRobot()  //机器人不参与
                     || source.exitFlag) { ////玩家退出游戏
                 continue;
             }
@@ -81,13 +84,13 @@ public class QuestService extends AbstractService {
                     }
 
                     if (target.exitFlag //玩家退出游戏
+                            || target.isRobot()  //机器人不参与
                             || target.matchFlag) { //已经匹配成
                         continue;
                     }
 
                     matchSuccess(source, target);
                     break;
-
                 }
             }
 
@@ -135,17 +138,26 @@ public class QuestService extends AbstractService {
 
         Matcher robot = new Matcher(UUID.randomUUID().toString(), "ABC");
         robot.setRobot(true);
+        robot.matchFlag = true;
         robot.setRoomId(roomID);
+        allMatchers.put(robot.getOpenId(), robot);
 
         room.getRoles().put(robot.getOpenId(), robot);
+        allRooms.put(roomID, room);
     }
 
     /**
      * 超时检查
      */
     private void doCheckTimeOut() {
+        long now = System.currentTimeMillis();
         for (Room room : allRooms.values()) {
-            //TODO 超时检测
+            if (now - room.getStartTime() > TimeUnit.MINUTES.toMillis(3)) {
+                //TODO 超时处理
+
+
+                removeRoom(room.getId());
+            }
         }
     }
 
@@ -187,7 +199,7 @@ public class QuestService extends AbstractService {
 
         Matcher matcher = allMatchers.get(openId);
         if (matcher == null) {
-            code = ErrorCode.ROLE_NOT_EXIST;
+            return Result.valueOf(ErrorCode.ROLE_NOT_EXIST, resp);
         }
 
         if (matcher.getRoomId() != 0) {
@@ -228,11 +240,56 @@ public class QuestService extends AbstractService {
         return Result.valueOf(code, resp);
     }
 
-    public Matcher getMatcher(String openId){
+    public Matcher getMatcher(String openId) {
         return allMatchers.get(openId);
     }
 
-    public Room getRoom(int roomId){
+    public Room getRoom(int roomId) {
         return allRooms.get(roomId);
+    }
+
+    public Room removeRoom(int roomId) {
+        Room room = allRooms.remove(roomId);
+        for (String openid : room.getRoles().keySet()) {
+            allMatchers.remove(openid);
+        }
+        return room;
+    }
+
+    /**
+     * 创建房间
+     *
+     * @param openId
+     * @return
+     */
+    public Result createRoom(String openId) {
+        Player player = playerService.getPlayer(openId);
+        Room room = new Room(ROOMID_GEN.getAndDecrement());
+        Matcher matcher = new Matcher(player.getOpenId(), player.getNickName());
+        matcher.setRoomId(room.getId());
+        allMatchers.put(openId, matcher);
+        room.getRoles().put(openId, matcher);
+        allRooms.put(room.getId(), room);
+        return Result.valueOf(ErrorCode.OK, String.valueOf(room.getId()));
+    }
+
+    /**
+     * 加入房间
+     *
+     * @param openId
+     * @param roomID
+     * @return
+     */
+    public Result joinRoom(String openId, int roomID) {
+        Player player = playerService.getPlayer(openId);
+        Room room = allRooms.get(roomID);
+        if (room == null) {
+            return Result.valueOf(ErrorCode.ROOM_NOT_EXIST, "");
+        }
+        Matcher matcher = new Matcher(player.getOpenId(), player.getNickName());
+        matcher.setRoomId(room.getId());
+        allMatchers.put(openId, matcher);
+        room.getRoles().put(openId, matcher);
+        return Result.valueOf(ErrorCode.OK, String.valueOf(room.getId()));
     }
 }

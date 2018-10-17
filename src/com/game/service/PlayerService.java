@@ -39,6 +39,9 @@ public class PlayerService {
                     if (player != null) {
                         List<Integer> historyQuestions = JsonUtils.string2Object(player.getHistoryQuestionsStr(), List.class);
                         player.setHistoryQuestions(historyQuestions);
+
+                        List<Integer> historyCatergory = JsonUtils.string2Object(player.getHistoryCatergorysStr(), List.class);
+                        player.setHistoryCatergorys(historyCatergory);
                     }
 
                     return player;
@@ -157,6 +160,7 @@ public class PlayerService {
             player.setLevel(player.getLevel() + deltLevel);
         }
 
+        playerDAO.saveOrUpdate(player);
         return player.getLevel();
     }
 
@@ -190,5 +194,13 @@ public class PlayerService {
         }
 
         return checkForLevelup(openId, 10);
+    }
+
+    public void scheduleRank() {
+        logger.warn("rank .....");
+        List<Player> players = playerDAO.queryPlayerRank();
+
+        int count = playerDAO.selectPlayerCount();
+
     }
 }

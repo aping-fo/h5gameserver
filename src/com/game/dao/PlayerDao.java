@@ -5,6 +5,8 @@ import net.paoding.rose.jade.annotation.DAO;
 import net.paoding.rose.jade.annotation.SQL;
 import net.paoding.rose.jade.annotation.SQLParam;
 
+import java.util.List;
+
 @DAO
 public interface PlayerDAO {
 
@@ -16,5 +18,12 @@ public interface PlayerDAO {
 
 
     @SQL("REPLACE INTO t_u_player VALUES (:player.openId,:player.nickName,:player.level,:player.totalQuestions,:player.answerSuccess,:player.historyCatergorysStr,:player.historyQuestionsStr,:player.exp)")
-    public void insertChargerecord(@SQLParam("player") Player player);
+    public void saveOrUpdate(@SQLParam("player") Player player);
+
+    @SQL("SELECT openId, nickName, level,exp FROM t_u_player ORDER BY level DESC,exp DESC LIMIT 100")
+    public List<Player> queryPlayerRank();
+
+    @SQL("select count(1) from t_u_player")
+    public Integer selectPlayerCount();
+
 }

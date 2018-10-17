@@ -16,14 +16,18 @@ public class Room {
     private int id;
     private long startTime;
     private Map<String, Matcher> roles = Maps.newConcurrentMap();
+    private List<Integer> questionCategorys = Lists.newArrayList();
+    private List<Integer> emptyIndexs = Lists.newArrayList();
     private List<QuestVO> questions = Lists.newArrayList();
     private Map<Integer, Answer> answers = Maps.newHashMap();
 
     private final ReentrantLock lock = new ReentrantLock();
-    private QuestVO currentQuest;
-    private List<QuestVO> currentQuestions = Lists.newArrayList();
-    private String answerOpendid;
-    private String victoryOpenid;
+
+    private int currentIndex;     //当前抢答位置
+    private QuestVO currentQuest; //当前抢答题
+    private List<QuestVO> currentQuestions = Lists.newArrayList(); //已经出的题目
+    private String answerOpendid; //抢答玩家ID
+    private String victoryOpenid; //胜利玩家ID
 
     public String getVictoryOpenid() {
         return victoryOpenid;
@@ -102,16 +106,16 @@ public class Room {
         this.questions = questions;
     }
 
-    public QuestVO randomQuest() {
+    public int randomEmptyIndexs() {
         try {
             lock.lock();
-            if (currentQuest == null && currentQuestions.size() > 0) {
-                int idx = RandomUtil.randInt(currentQuestions.size());
-                currentQuest = currentQuestions.get(idx);
-                currentQuestions.remove(idx);
+            if(currentIndex == -1){
+                int idx = RandomUtil.randInt(emptyIndexs.size());
+                currentIndex = emptyIndexs.get(idx);
+                emptyIndexs.remove(idx);
             }
-            return currentQuest;
 
+            return currentIndex;
         } finally {
             lock.unlock();
         }
@@ -132,10 +136,35 @@ public class Room {
     public void cleanQuest() {
         try {
             lock.lock();
+            currentIndex = -1;
             currentQuest = null;
             answerOpendid = null;
         } finally {
             lock.unlock();
         }
+    }
+
+    public List<Integer> getQuestionCategorys() {
+        return questionCategorys;
+    }
+
+    public void setQuestionCategorys(List<Integer> questionCategorys) {
+        this.questionCategorys = questionCategorys;
+    }
+
+    public List<Integer> getEmptyIndexs() {
+        return emptyIndexs;
+    }
+
+    public void setEmptyIndexs(List<Integer> emptyIndexs) {
+        this.emptyIndexs = emptyIndexs;
+    }
+
+    public int getCurrentIndex() {
+        return currentIndex;
+    }
+
+    public void setCurrentIndex(int currentIndex) {
+        this.currentIndex = currentIndex;
     }
 }
