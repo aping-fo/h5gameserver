@@ -33,12 +33,12 @@ public class Cmd {
     public static final int SUBMIT_VICTORY = 2010;
     //检查题目是否被抢了
     public static final int CHECK_ROB = 2011;
-
     //创建房间
     public static final int CREATE_ROOM= 2012;
-
     //加入房间
     public static final int JOIN_ROOM= 2013;
+    //报名参赛
+    public static final int SIGN_UP= 2014;
     //请求历史题库
     public static final int GET_HISTORY_QUESTION = 3000;
 

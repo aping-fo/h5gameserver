@@ -106,49 +106,54 @@ public class QuestService extends AbstractService {
         }
     }
 
-    private void matchSuccess(Fighter matcher1, Fighter matcher2) {
-        if (matcher1.exitFlag || matcher2.exitFlag) {
+    private void matchSuccess(Fighter redFighter, Fighter bludFighter) {
+        if (redFighter.exitFlag || bludFighter.exitFlag) {
             return;
         }
 
-        matcher1.matchFlag = true;
-        matcher2.matchFlag = true;
-
-        int roomID = ROOMID_GEN.getAndIncrement();
-
-        Room room = new Room(roomID);
-        room.getRoles().put(matcher1.getOpenId(), matcher1);
-        room.getRoles().put(matcher2.getOpenId(), matcher2);
-
-        matcher1.setRoomId(roomID);
-        matcher2.setRoomId(roomID);
-
-        allRooms.put(roomID, room);
+        createRoomWithTwo(redFighter, bludFighter);
     }
 
     /**
      * 匹配机器人
      *
-     * @param source
+     * @param redFighter
      */
-    private void matchingRobot(Fighter source) {
-        if (source.exitFlag) {
+    private void matchingRobot(Fighter redFighter) {
+        if (redFighter.exitFlag) {
             return;
         }
-        source.matchFlag = true;
-
-        int roomID = ROOMID_GEN.getAndIncrement();
-        Room room = new Room(roomID);
-        room.getRoles().put(source.getOpenId(), source);
-
         Fighter robot = new Fighter(UUID.randomUUID().toString(), "ABC");
         robot.setRobot(true);
-        robot.matchFlag = true;
-        robot.setRoomId(roomID);
-        allMatchers.put(robot.getOpenId(), robot);
 
-        room.getRoles().put(robot.getOpenId(), robot);
+        createRoomWithTwo(redFighter, robot);
+    }
+
+    /**
+     * 创建红蓝对战房间
+     *
+     * @param redFighter
+     * @param bludFighter
+     */
+    private Room createRoomWithTwo(Fighter redFighter, Fighter bludFighter) {
+        int roomID = ROOMID_GEN.getAndIncrement();
+        Room room = new Room(roomID);
+
+        //read Square
+        redFighter.matchSuccess();
+        redFighter.setRoomId(roomID);
+        allMatchers.put(redFighter.getOpenId(), redFighter);
+        room.getRoles().put(redFighter.getOpenId(), redFighter);
+
+        //blud Square
+        bludFighter.matchSuccess();
+        bludFighter.setRoomId(roomID);
+        allMatchers.put(bludFighter.getOpenId(), bludFighter);
+        room.getRoles().put(bludFighter.getOpenId(), bludFighter);
+
         allRooms.put(roomID, room);
+
+        return room;
     }
 
     /**
@@ -284,20 +289,8 @@ public class QuestService extends AbstractService {
      *
      * @return
      */
-    public Result createRoom(Fighter fighter1, Fighter fighter2) {
-        Room room = new Room(ROOMID_GEN.getAndDecrement());
-        fighter1.setRoomId(room.getId());
-        fighter1.matchFlag = true;
-        fighter1.fighting = true;
-        fighter2.setRoomId(room.getId());
-        fighter2.matchFlag = true;
-        fighter2.fighting = true;
-        allMatchers.put(fighter1.getOpenId(), fighter1);
-        room.getRoles().put(fighter1.getOpenId(), fighter1);
-
-        allMatchers.put(fighter2.getOpenId(), fighter2);
-        room.getRoles().put(fighter2.getOpenId(), fighter2);
-        allRooms.put(room.getId(), room);
+    public Result createRoom(Fighter redFigher, Fighter bludFighter) {
+        Room room = createRoomWithTwo(redFigher, bludFighter);
         return Result.valueOf(ErrorCode.OK, String.valueOf(room.getId()));
     }
 
@@ -324,14 +317,14 @@ public class QuestService extends AbstractService {
     public void createMasterFight(List<Fighter> players) {
         List<Fighter> list = new ArrayList<>();
 
-        for (Fighter player : players) {
-            if (player.round == 0 || player.victory) { //第一局 或者 上一局胜利者 进入下一轮
-                list.add(player);
+        for (Fighter fighter : players) {
+            if (fighter.getRound() == 0 || fighter.victory) { //第一局 或者 上一局胜利者 进入下一轮
+                list.add(fighter);
             }
 
             //本轮默认失败
-            player.victory = false;
-            player.round += 1;
+            fighter.victory = false;
+            fighter.setRound(fighter.getRound() + 1);
         }
 
         if (list.size() < 1) {

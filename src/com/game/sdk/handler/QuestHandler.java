@@ -8,6 +8,7 @@ import com.game.sdk.proto.AnswerQuestionReq;
 import com.game.sdk.proto.GetAnswerReq;
 import com.game.sdk.proto.JoinRoomReq;
 import com.game.sdk.proto.StartMatchReq;
+import com.game.service.MasterMatchService;
 import com.game.service.QuestBankService;
 import com.game.service.QuestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,8 @@ public class QuestHandler {
     private QuestService questService;
     @Autowired
     private QuestBankService questBankService;
+    @Autowired
+    private MasterMatchService masterMatchService;
 
     @Command(cmd = Cmd.START_MATCH, description = "请求匹配")
     public Result starMatch(String openId, StartMatchReq req) throws Exception {
@@ -90,6 +93,11 @@ public class QuestHandler {
     @Command(cmd = Cmd.JOIN_ROOM, description = "加入房间")
     public Result joinRoom(String openId, JoinRoomReq req) throws Exception {
         return questService.joinRoom(openId, req.getRoomID());
+    }
+
+    @Command(cmd = Cmd.SIGN_UP, description = "报名参赛")
+    public Result signup(String openId) throws Exception {
+        return masterMatchService.signup(openId);
     }
 
 //    @Command(cmd = Cmd.GET_HISTORY_QUESTION, description = "请求历史题库")
