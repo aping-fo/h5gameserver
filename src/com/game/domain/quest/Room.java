@@ -5,6 +5,8 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.game.sdk.proto.vo.QuestVO;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
@@ -15,9 +17,9 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Room {
     private int id;
     private long startTime;
-    private Map<String, Matcher> roles = Maps.newConcurrentMap();
+    private Map<String, Fighter> roles = Maps.newConcurrentMap();
     private List<Integer> questionCategorys = Lists.newArrayList();
-    private List<Integer> emptyIndexs = Lists.newArrayList();
+    private List<Integer> emptyIndexs = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8));
     private List<QuestVO> questions = Lists.newArrayList();
     private Map<Integer, Answer> answers = Maps.newHashMap();
 
@@ -90,11 +92,11 @@ public class Room {
         this.id = id;
     }
 
-    public Map<String, Matcher> getRoles() {
+    public Map<String, Fighter> getRoles() {
         return roles;
     }
 
-    public void setRoles(Map<String, Matcher> roles) {
+    public void setRoles(Map<String, Fighter> roles) {
         this.roles = roles;
     }
 

@@ -3,7 +3,7 @@ package com.game.service;
 import com.game.data.QuestionCfg;
 import com.game.domain.player.Player;
 import com.game.domain.quest.Answer;
-import com.game.domain.quest.Matcher;
+import com.game.domain.quest.Fighter;
 import com.game.domain.quest.Room;
 import com.game.sdk.net.Result;
 import com.game.sdk.proto.AnswerResultResp;
@@ -36,7 +36,7 @@ public class QuestBankService extends AbstractService {
     public Result getQuestCategorys(String openId) throws Exception {
         QuestCategoryResp resp = new QuestCategoryResp();
 
-        Matcher matcher = questService.getMatcher(openId);
+        Fighter matcher = questService.getMatcher(openId);
         if (matcher == null) {
             return Result.valueOf(ErrorCode.ROLE_NOT_EXIST, resp);
         }
@@ -65,17 +65,23 @@ public class QuestBankService extends AbstractService {
     }
 
     public Result getQuestIndex(String openId) throws Exception {
-        Matcher matcher = questService.getMatcher(openId);
+        Fighter matcher = questService.getMatcher(openId);
         if (matcher == null) {
             return Result.valueOf(ErrorCode.ROLE_NOT_EXIST, "0");
         }
 
         Room room = questService.getRoom(matcher.getRoomId());
+
         if (room == null) {
             return Result.valueOf(ErrorCode.ROLE_NOT_IN_GAME, "0");
         }
-
-        int vo = room.randomEmptyIndexs();
+        int vo;
+        QuestVO currentQuest = room.getCurrentQuest();
+        if (currentQuest != null) {
+            vo = currentQuest.getIndex();
+        } else {
+            vo = room.randomEmptyIndexs();
+        }
 
         return Result.valueOf(ErrorCode.OK, String.valueOf(vo));
     }
@@ -87,7 +93,7 @@ public class QuestBankService extends AbstractService {
      * @return
      */
     public Result robAnswer(String openId) {
-        Matcher matcher = questService.getMatcher(openId);
+        Fighter matcher = questService.getMatcher(openId);
         if (matcher == null) {
             return Result.valueOf(ErrorCode.ROLE_NOT_EXIST, "0");
         }
@@ -104,27 +110,27 @@ public class QuestBankService extends AbstractService {
         }
 
         QuestVO question = room.getCurrentQuest();
-        if(question == null){
+        if (question == null) {
             //随机派题
             int currentQuestIndex = room.getCurrentIndex();
-            if(currentQuestIndex != -1){
+            if (currentQuestIndex != -1) {
                 int questCategory = room.getQuestionCategorys().get(currentQuestIndex);
                 Collection<Object> cfgs = ConfigData.getConfigs(QuestionCfg.class);
                 Object[] array = cfgs.toArray();
 
-                while(true){
+                while (true) {
                     int index = RandomUtil.randInt(array.length);
-                    QuestionCfg config = (QuestionCfg)array[index];
+                    QuestionCfg config = (QuestionCfg) array[index];
                     boolean isOld = false;
 
-                    for(QuestVO oldVo : room.getCurrentQuestions()){
-                        if(oldVo.getId() == config.id){
+                    for (QuestVO oldVo : room.getCurrentQuestions()) {
+                        if (oldVo.getId() == config.id) {
                             isOld = true;
                             break;
                         }
                     }
 
-                    if(config.catergory == questCategory && !isOld){
+                    if (config.catergory == questCategory && !isOld) {
                         question = new QuestVO();
                         question.setId(config.id);
                         question.setContent(config.content);
@@ -136,6 +142,7 @@ public class QuestBankService extends AbstractService {
 
                         room.setCurrentQuest(question);
                         room.getCurrentQuestions().add(question);
+                        break;
                     }
                 }
             }
@@ -154,7 +161,7 @@ public class QuestBankService extends AbstractService {
      * @return
      */
     public Result checkRob(String openId) {
-        Matcher matcher = questService.getMatcher(openId);
+        Fighter matcher = questService.getMatcher(openId);
         if (matcher == null) {
             return Result.valueOf(ErrorCode.ROLE_NOT_EXIST, "0");
         }
@@ -171,6 +178,10 @@ public class QuestBankService extends AbstractService {
         }
         Map<String, Object> resp = Maps.newHashMapWithExpectedSize(1);
         resp.put("result", result);
+        if (result) {
+            QuestVO quest = room.getCurrentQuest();
+            resp.put("question", quest);
+        }
         return Result.valueOf(ErrorCode.OK, resp);
     }
 
@@ -182,7 +193,7 @@ public class QuestBankService extends AbstractService {
      * @return
      */
     public Result answerTheQuestion(String openId, int answer) {
-        Matcher matcher = questService.getMatcher(openId);
+        Fighter matcher = questService.getMatcher(openId);
         if (matcher == null) {
             return Result.valueOf(ErrorCode.ROLE_NOT_EXIST, "0");
         }
@@ -210,7 +221,6 @@ public class QuestBankService extends AbstractService {
         if (!matcher.isRobot()) {
             Player player = playerService.getPlayer(openId);
             player.addHistoryQuestion(room.getCurrentQuest().getId());
-
             playerService.answerResult(openId, result);
         }
 
@@ -246,7 +256,7 @@ public class QuestBankService extends AbstractService {
     public Result getRoomAnswers(String openId) {
         AnswerResultResp resp = new AnswerResultResp();
 
-        Matcher matcher = questService.getMatcher(openId);
+        Fighter matcher = questService.getMatcher(openId);
         if (matcher == null) {
             return Result.valueOf(ErrorCode.ROLE_NOT_EXIST, "0");
         }
@@ -270,19 +280,22 @@ public class QuestBankService extends AbstractService {
 
     public Result sumbitResult(String openId) {
 
-        Matcher matcher = questService.getMatcher(openId);
-        if (matcher == null) {
+        Fighter fighter = questService.getMatcher(openId);
+        if (fighter == null) {
             return Result.valueOf(ErrorCode.ROLE_NOT_EXIST, "0");
         }
 
-        Room room = questService.getRoom(matcher.getRoomId());
+        Room room = questService.getRoom(fighter.getRoomId());
         if (room == null) {
             return Result.valueOf(ErrorCode.ROLE_NOT_IN_GAME, "0");
         }
 
-        if (!matcher.isRobot()) {
+        if (!fighter.isRobot()) {
             playerService.roundResult(openId, true);
         }
+
+        fighter.victory = true;
+
         questService.removeRoom(room.getId());
         room.setVictoryOpenid(openId);
         Map<String, Object> resp = Maps.newHashMapWithExpectedSize(1);

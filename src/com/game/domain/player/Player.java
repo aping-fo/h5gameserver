@@ -1,5 +1,6 @@
 package com.game.domain.player;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.game.util.JsonUtils;
 import com.google.common.collect.Lists;
 
@@ -10,12 +11,31 @@ public class Player {
     private String nickName;
     private int level;
     private int exp;
+
+    @JsonIgnore
     private int totalQuestions; //总题数
+    @JsonIgnore
     private int answerSuccess; //正确答题数
+    @JsonIgnore
     private String historyCatergorysStr = ""; //历史选题类型
+    @JsonIgnore
     private List<Integer> historyCatergorys = Lists.newArrayList();
+    @JsonIgnore
     private String historyQuestionsStr = ""; //历史答题
+    @JsonIgnore
     private List<Integer> historyQuestions = Lists.newArrayList();
+    //第几回合
+    private int round;
+    @JsonIgnore
+    public volatile boolean victory = true;
+
+    public int getRound() {
+        return round;
+    }
+
+    public void setRound(int round) {
+        this.round = round;
+    }
 
     public int getExp() {
         return exp;
@@ -46,6 +66,8 @@ public class Player {
     }
 
     public void addHistoryQuestion(int questionId) {
+        if (historyQuestions == null)
+            return;
         historyQuestions.add(0, questionId);
         if (historyQuestions.size() > 30) {
             historyQuestions.remove(30);

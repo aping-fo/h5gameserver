@@ -3,7 +3,6 @@ package com.game.service;
 import com.game.dao.PlayerDAO;
 import com.game.data.LevelCfg;
 import com.game.domain.player.Player;
-import com.game.sdk.http.HttpClient;
 import com.game.sdk.net.Result;
 import com.game.sdk.proto.OpenIDResp;
 import com.game.sdk.utils.ErrorCode;
@@ -37,11 +36,17 @@ public class PlayerService {
                     logger.info("Cache loaded for " + openId);
                     Player player = playerDAO.queryPlayer(openId);
                     if (player != null) {
-                        List<Integer> historyQuestions = JsonUtils.string2Object(player.getHistoryQuestionsStr(), List.class);
-                        player.setHistoryQuestions(historyQuestions);
+                        String historyQuestionStr = player.getHistoryQuestionsStr();
+                        if (historyQuestionStr != null && historyQuestionStr.length() > 0) {
+                            List<Integer> historyQuestions = JsonUtils.string2Object(historyQuestionStr, List.class);
+                            player.setHistoryQuestions(historyQuestions);
+                        }
+                        String categoryStr = player.getHistoryCatergorysStr();
+                        if (categoryStr != null && categoryStr.length() > 0) {
+                            List<Integer> historyCatergory = JsonUtils.string2Object(categoryStr, List.class);
+                            player.setHistoryCatergorys(historyCatergory);
+                        }
 
-                        List<Integer> historyCatergory = JsonUtils.string2Object(player.getHistoryCatergorysStr(), List.class);
-                        player.setHistoryCatergorys(historyCatergory);
                     }
 
                     return player;
@@ -94,10 +99,10 @@ public class PlayerService {
     public Result getOpenID(String openId, String code) throws Exception {
         String errorCode = ErrorCode.OK;
         OpenIDResp resp = new OpenIDResp();
-        String url = "https://api.weixin.qq.com/sns/jscode2session?appid=wx7004cb8d1a5b3df5&secret=80ab0be6003cec743ea964dedfad101c&grant_type=authorization_code&js_code=" + code;
-        String json = HttpClient.sendGetRequest(url);
-        Map<String, Object> result = JsonUtils.string2Map(json);
-        openId = (String) result.get("openid");
+//        String url = "https://api.weixin.qq.com/sns/jscode2session?appid=wx7004cb8d1a5b3df5&secret=80ab0be6003cec743ea964dedfad101c&grant_type=authorization_code&js_code=" + code;
+//        String json = HttpClient.sendGetRequest(url);
+//        Map<String, Object> result = JsonUtils.string2Map(json);
+//        openId = (String) result.get("openid");
         try {
             players.get(openId);
             resp.setHasRole(true);
@@ -196,7 +201,7 @@ public class PlayerService {
         return checkForLevelup(openId, 10);
     }
 
-    public void scheduleRank() {
+    public void schedule() {
         logger.warn("rank .....");
         List<Player> players = playerDAO.queryPlayerRank();
 

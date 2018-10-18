@@ -38,7 +38,8 @@ public class ServerTimer {
      */
     private void handleInit() {
         // 凌晨0点执行
-        timers.add(new TimerObject("0 0 * * * *", "playerService", "scheduleRank"));
+        timers.add(new TimerObject("0 0 * * * *", "playerService", "schedule"));
+        //timers.add(new TimerObject("0 * * * * *", "masterMatchService", "schedule"));
 
         updateTimeStr();
     }

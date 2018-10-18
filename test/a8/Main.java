@@ -1,14 +1,10 @@
 package a8;
 
-import com.game.domain.MarryRank;
-import com.game.sdk.proto.OpenIDReq;
-import com.game.util.JsonUtils;
 import com.google.common.base.Charsets;
 import com.sun.org.apache.xpath.internal.operations.String;
 
 import java.nio.charset.Charset;
 import java.util.Base64;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
@@ -18,7 +14,7 @@ import java.util.function.Function;
  * Created by lucky on 2018/1/8.
  */
 public class Main<T, R> {
-    private static Map<Integer,Integer> map = new HashMap<>();
+    private static Map<Integer, Integer> map = new HashMap<>();
 
     public static byte[] short2bytes(int length) {
         int temp = length;
@@ -38,6 +34,7 @@ public class Main<T, R> {
         s = (short) (s0 | s1);
         return s;
     }
+
     public static void main(String[] args) {
         /*Main<String, String> main = new Main<>();
         main.Func(param -> param + "23","1111");
@@ -141,17 +138,10 @@ public class Main<T, R> {
 
         l.forEach(o -> System.out.println(o));*/
 
-        MarryRank req = new MarryRank();
-        req.setOpenId("1111");
-        req.setNickName("sssssss");
-        req.setAvatarUrl("ssssssssss");
-
 
         System.out.println(Base64.getEncoder().encode("你好，聪哥".getBytes(Charsets.UTF_8)));
-        System.out.println(Base64.getEncoder().encode(JsonUtils.object2String(req).getBytes()));
         System.out.println(new java.lang.String(Base64.getDecoder().decode("5ZWKYWQ="), Charset.forName("UTF-8")));
     }
-
 
 
     public void Func(Function<T, R> function, T t) {

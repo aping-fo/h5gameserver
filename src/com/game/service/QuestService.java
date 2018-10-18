@@ -1,7 +1,7 @@
 package com.game.service;
 
 import com.game.domain.player.Player;
-import com.game.domain.quest.Matcher;
+import com.game.domain.quest.Fighter;
 import com.game.domain.quest.Room;
 import com.game.sdk.net.Result;
 import com.game.sdk.proto.HistoryQuestionResp;
@@ -14,6 +14,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -33,7 +35,7 @@ public class QuestService extends AbstractService {
      * 匹配房间,玩家ID 对房间
      */
     private final Map<Integer, Room> allRooms = new ConcurrentHashMap<>();
-    private final Map<String, Matcher> allMatchers = new ConcurrentHashMap<>();
+    private final Map<String, Fighter> allMatchers = new ConcurrentHashMap<>();
     private final int MATCH_TIMES = 2;
     private final AtomicInteger ROOMID_GEN = new AtomicInteger(100); //房间ID
 
@@ -65,19 +67,22 @@ public class QuestService extends AbstractService {
     }
 
     private void doMatching() {
-        for (Matcher source : allMatchers.values()) {
+        for (Fighter source : allMatchers.values()) {
             if (source.matchFlag //已经匹配成功
                     || source.isRobot()  //机器人不参与
-                    || source.exitFlag) { ////玩家退出游戏
+                    || source.exitFlag////玩家退出游戏
+                    || source.getRoomId() != 0) {
                 continue;
+
             }
 
             for (int i = 0; i < MATCH_TIMES; i++) {
-                for (Matcher target : allMatchers.values()) {
+                for (Fighter target : allMatchers.values()) {
                     if (source.getOpenId().equals(target.getOpenId())) { //自己
                         continue;
                     }
-
+                    if (target.getRoomId() != 0)
+                        continue;
                     if (source.matchFlag //已经匹配成功
                             || source.exitFlag) { //玩家退出游戏
                         break;
@@ -94,14 +99,14 @@ public class QuestService extends AbstractService {
                 }
             }
 
-            if (source.time >= MATCH_TIMES) {
+            if (source.count >= MATCH_TIMES) {
                 matchingRobot(source);
             }
-            source.time += 1;
+            source.count += 1;
         }
     }
 
-    private void matchSuccess(Matcher matcher1, Matcher matcher2) {
+    private void matchSuccess(Fighter matcher1, Fighter matcher2) {
         if (matcher1.exitFlag || matcher2.exitFlag) {
             return;
         }
@@ -126,7 +131,7 @@ public class QuestService extends AbstractService {
      *
      * @param source
      */
-    private void matchingRobot(Matcher source) {
+    private void matchingRobot(Fighter source) {
         if (source.exitFlag) {
             return;
         }
@@ -136,7 +141,7 @@ public class QuestService extends AbstractService {
         Room room = new Room(roomID);
         room.getRoles().put(source.getOpenId(), source);
 
-        Matcher robot = new Matcher(UUID.randomUUID().toString(), "ABC");
+        Fighter robot = new Fighter(UUID.randomUUID().toString(), "ABC");
         robot.setRobot(true);
         robot.matchFlag = true;
         robot.setRoomId(roomID);
@@ -170,7 +175,7 @@ public class QuestService extends AbstractService {
      * @return
      */
     public Result startMatch(String openId, StartMatchReq req) {
-        Matcher matcher = new Matcher(openId, req.getNickName());
+        Fighter matcher = new Fighter(openId, req.getNickName());
         allMatchers.put(openId, matcher);
         return Result.valueOf(ErrorCode.OK, "ok");
     }
@@ -182,7 +187,7 @@ public class QuestService extends AbstractService {
      * @return
      */
     public Result endMatch(String openId) {
-        Matcher matcher = allMatchers.remove(openId);
+        Fighter matcher = allMatchers.remove(openId);
         matcher.exitFlag = true;
         return Result.valueOf(ErrorCode.OK, "ok");
     }
@@ -197,7 +202,7 @@ public class QuestService extends AbstractService {
         MatchResultResp resp = new MatchResultResp();
         String code = ErrorCode.OK;
 
-        Matcher matcher = allMatchers.get(openId);
+        Fighter matcher = allMatchers.get(openId);
         if (matcher == null) {
             return Result.valueOf(ErrorCode.ROLE_NOT_EXIST, resp);
         }
@@ -209,7 +214,7 @@ public class QuestService extends AbstractService {
                 resp.setMatchSuccess(false);
             } else {
                 resp.setMatchSuccess(true);
-                for (Matcher matcher1 : room.getRoles().values()) {
+                for (Fighter matcher1 : room.getRoles().values()) {
                     MatcherVO vo = new MatcherVO();
                     vo.setOpenId(matcher1.getOpenId());
                     vo.setNickName(matcher1.getNickName());
@@ -240,7 +245,7 @@ public class QuestService extends AbstractService {
         return Result.valueOf(code, resp);
     }
 
-    public Matcher getMatcher(String openId) {
+    public Fighter getMatcher(String openId) {
         return allMatchers.get(openId);
     }
 
@@ -251,7 +256,8 @@ public class QuestService extends AbstractService {
     public Room removeRoom(int roomId) {
         Room room = allRooms.remove(roomId);
         for (String openid : room.getRoles().keySet()) {
-            allMatchers.remove(openid);
+            Fighter fighter = allMatchers.remove(openid);
+            fighter.fighting = false; //答题结束
         }
         return room;
     }
@@ -265,10 +271,32 @@ public class QuestService extends AbstractService {
     public Result createRoom(String openId) {
         Player player = playerService.getPlayer(openId);
         Room room = new Room(ROOMID_GEN.getAndDecrement());
-        Matcher matcher = new Matcher(player.getOpenId(), player.getNickName());
+        Fighter matcher = new Fighter(player.getOpenId(), player.getNickName());
         matcher.setRoomId(room.getId());
         allMatchers.put(openId, matcher);
         room.getRoles().put(openId, matcher);
+        allRooms.put(room.getId(), room);
+        return Result.valueOf(ErrorCode.OK, String.valueOf(room.getId()));
+    }
+
+    /**
+     * 创建房间
+     *
+     * @return
+     */
+    public Result createRoom(Fighter fighter1, Fighter fighter2) {
+        Room room = new Room(ROOMID_GEN.getAndDecrement());
+        fighter1.setRoomId(room.getId());
+        fighter1.matchFlag = true;
+        fighter1.fighting = true;
+        fighter2.setRoomId(room.getId());
+        fighter2.matchFlag = true;
+        fighter2.fighting = true;
+        allMatchers.put(fighter1.getOpenId(), fighter1);
+        room.getRoles().put(fighter1.getOpenId(), fighter1);
+
+        allMatchers.put(fighter2.getOpenId(), fighter2);
+        room.getRoles().put(fighter2.getOpenId(), fighter2);
         allRooms.put(room.getId(), room);
         return Result.valueOf(ErrorCode.OK, String.valueOf(room.getId()));
     }
@@ -286,10 +314,41 @@ public class QuestService extends AbstractService {
         if (room == null) {
             return Result.valueOf(ErrorCode.ROOM_NOT_EXIST, "");
         }
-        Matcher matcher = new Matcher(player.getOpenId(), player.getNickName());
+        Fighter matcher = new Fighter(player.getOpenId(), player.getNickName());
         matcher.setRoomId(room.getId());
         allMatchers.put(openId, matcher);
         room.getRoles().put(openId, matcher);
         return Result.valueOf(ErrorCode.OK, String.valueOf(room.getId()));
+    }
+
+    public void createMasterFight(List<Fighter> players) {
+        List<Fighter> list = new ArrayList<>();
+
+        for (Fighter player : players) {
+            if (player.round == 0 || player.victory) { //第一局 或者 上一局胜利者 进入下一轮
+                list.add(player);
+            }
+
+            //本轮默认失败
+            player.victory = false;
+            player.round += 1;
+        }
+
+        if (list.size() < 1) {
+            return;
+        }
+
+        for (int i = 0; i < list.size(); i += 2) {
+            Fighter fighter1 = list.get(i);
+            Fighter fighter2;
+            if (i + 1 >= list.size()) {
+                fighter2 = new Fighter(UUID.randomUUID().toString(), "ABC");
+                fighter2.setRobot(true);
+                fighter2.matchFlag = true;
+            } else {
+                fighter2 = list.get(i + 1);
+            }
+            createRoom(fighter1, fighter2);
+        }
     }
 }
